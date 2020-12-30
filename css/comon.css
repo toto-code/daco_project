@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?dd8xkm');
+    src:  url('../fonts/icomoon.eot?dd8xkm#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?dd8xkm') format('truetype'),
+      url('../fonts/icomoon.woff?dd8xkm') format('woff'),
+      url('../fonts/icomoon.svg?dd8xkm#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+.w {
+    width: 1300px;
+    margin: 0 auto ;
+}
+  .shortcut {
+    height: 55px;
+    line-height: 55px;
+    background-color: #f1f1f1;
+  }
+  /* 导航栏块左浮动 */
+  .left_shortcut {
+    float: left;
+    margin-left: 20px;
+  }
+ /* 导航栏进行左浮动 */
+  .left_shortcut>ul>li {
+    float: left;
+    position: relative;
+  }
+ .plc_set_list {
+   position: absolute;
+   display: block;
+ }
+ .cnc_set_list {
+  position: absolute;
+  display: block;
+}
+   /* 选择所有偶数的li 添加竖线框 */
+  .left_shortcut>ul>li:nth-child(even) {
+    width: 1px;
+    height: 12px; 
+    background-color: #666;
+    margin-top:22px;
+  }
+  .left_shortcut>ul>li:nth-child(odd) {
+    padding: 0 15px 0;
+  }
+  .left_shortcut>ul>li:nth-child(odd):hover {
+    background-color: rgb(76, 76, 204,0.2);
+    color:white;
+  }
+  .left_shortcut>ul>li:nth-child(2):hover .cnc_set_list{
+    display: block;
+  }
+  /* .left_shortcut>ul>li:nth-child(odd):hover a {
+    
+  } */
+
+  .mid_shortcut {
+      float: left;
+      margin-left:30px ;
+  }
+  .mid_shortcut button {
+    margin-left:20px;
+    padding:5px 10px ;
+    color: white;
+    border-radius: 8px;
+
+  }
+  .mid_shortcut button:first-child {
+    background-color: rgb(119, 207, 119,0.7);
+ 
+  }
+  .mid_shortcut button:last-child {
+    background-color: rgb(212, 130, 52,.7);
+  }
+
+  .right_shotcutdiv {
+      float: right;
+  }
+  .left_shotcutdiv {
+    float: left;
+    margin-right: 50px;
+  }
+  .left_shotcutdiv::before {
+    float: left;
+    content: '';
+    font-family: 'icomoon';
+    margin-right: 5px;
+    color: #b1191a;
+    font-size: 25px;
+  }
+  .left_shotcutdiv p {
+      float: left;
+      margin-left: 10px;
+  }
+
+  .date_shortcut {
+      float: right;
+      margin-right: 50px;
+  }

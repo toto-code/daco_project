@@ -1,0 +1,35 @@
+
+.system_set li{
+    margin-top:10px ;
+}
+input {
+    border: 1px solid #666666;
+    outline: 1px;
+}
+
+.div_eth0 {
+    float: left;
+    margin-left: 20px;
+    padding: 20px 20px;
+    width: 30%;
+    border: 1px solid #666666;
+}
+.div_eth1 {
+    float: left;
+    margin-left: 20px;
+    padding: 20px 20px;
+    width: 30%;
+    border: 1px solid #666666;
+}
+
+.div_vpn {
+    float: left;
+    margin-left: 20px;
+    padding: 20px 20px;
+    width: 30%;
+    border: 1px solid #666666;
+}
+
+.div_ping {
+    border: 1px solid #666666;
+}

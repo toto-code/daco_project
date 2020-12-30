@@ -1,0 +1,153 @@
+.main {
+    height:120px;
+    margin-top: 10px;
+    /* background-color: pink; */
+}
+.main>P {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.main ul {
+    height: 70px;
+    border: 1px dashed #666;
+}
+.main ul li {
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+.main ul li span {
+    padding-left: 30px;
+}
+.progress {
+    height:20px;
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 5px;
+	background:#ebebeb;
+	border-left:1px solid transparent;
+	border-right:1px solid transparent;
+	border-radius:10px;
+}
+.progress > span {
+	position:relative;
+	float:left;
+	margin:0 -1px;
+	height:18px;
+	line-height:16px;
+	text-align:right;
+	background:#cccccc;
+	border:1px solid;
+	border-color:#bfbfbf;
+	border-radius:10px;
+	background-image:linear-gradient(to bottom,#f0f0f0 0%,#dbdbdb 70%,#cccccc 100%);
+	box-shadow:inset 0 1px rgba(255,255,255,0.3),0 1px 2px rgba(0,0,0,0.2);
+}
+
+.progress > span > span {
+	padding:0 8px;
+	font-size:11px;
+	font-weight:bold;
+	color:rgba(0,0,0,0.7);
+}
+
+.progress .green {
+	background:#85c440;
+    border-color:#78b337 #6ba031 #568128;
+    background-image:linear-gradient(to bottom,#b7dc8e 0%,#99ce5f 70%,#85c440 100%);
+}
+
+.container>div {
+float: left;
+width: 50%;
+}
+.container_left {
+	background-color: white;
+	height: 500px;
+}
+
+.container_right {
+	background-color: white;
+}
+.data_table {
+	/* 合并单元边框 */
+
+	width: 90%;
+	border-collapse:collapse;
+}
+.data_table th {
+	font-size: 12px;
+	height: 50%;
+	text-align:center ;
+	border: 1px solid #666;
+}
+.data_table td {
+	font-size: 12px;
+	text-align:center ;
+	border: 1px solid #666;
+}
+/* 左侧PLC采集设备 */
+.plc_equipment {
+	margin-bottom: 20px;
+}
+.plc_equipment table{
+	margin: 10px 5px;
+	width: 90%;
+	border-collapse:collapse;
+}
+
+.plc_equipment th {
+	height: 50%;
+	font-size: 12px;
+	text-align:center ;
+	border: 1px solid #666;
+}
+.plc_equipment td {
+	font-size: 12px;
+	text-align:center ;
+	border: 1px solid #666;
+}
+
+/* //CNC设备 */
+.cnc_equipment table{
+	margin: 5px 5px;
+	width: 90%;
+	border-collapse:collapse;
+}
+
+.cnc_equipment th {
+	height: 50%;
+	font-size: 12px;
+	text-align:center ;
+	border: 1px solid #666;
+}
+.cnc_equipment td {
+	font-size: 12px;
+	text-align:center ;
+	border: 1px solid #666;
+}
+/* //分页 */
+.page {
+	margin: 10px 0px;
+	height: 20px;
+	line-height: 20px;
+}
+.page a {
+    display: inline-block;
+    border: 1px solid #ededed;
+    padding: 0 8px;
+    color: #3e3e3e;
+    font-size: 12px;
+    font-family: tahoma,simsun;
+    text-decoration: none;
+}
+.page a:hover {
+    color: #f40;
+    border-color: #f40;
+}
+.page .active,
+.page .active:hover {
+    color: #fff;
+    background: #f40;
+    border: solid 1px #f40;
+}

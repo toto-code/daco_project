@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linux_system</title>
+    <!-- 引入CSS样式文件 -->
+    <link rel="stylesheet" href="/css/sytle.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <p>内存利用率</p>
+    <div class="progress">
+        <span class="memory_util" style="width: 60%;"><span>60%</span></span>
+    </div>
+    <p>CPU利用率</p>
+    <div class="progress">
+        <span class="System_load" style="width: 60%;"><span>60%</span></span>
+    </div>
+    <p>磁盘使用情况<span class="totalava"></span></p>
+    <div class="progress">
+        <span class="Disk_occupancy" style="width: 70%;"><span>60%</span></span>
+    </div>
+    <script>
+        (function () {
+            //获取对象
+            var memory_util = document.querySelector('.memory_util');
+            var memory_util_text = document.querySelector('.memory_util').querySelector('span');
+            var System_load = document.querySelector('.System_load');
+            var System_load_text = document.querySelector('.System_load').querySelector('span');
+            var Disk_occupancy = document.querySelector('.Disk_occupancy');
+            var Disk_occupancy_text = document.querySelector('.Disk_occupancy').querySelector('span');
+            var totalava = document.querySelector('.totalava');
+            //内存利用率
+            var memory = setInterval(function () {
+                //1、创建异步对象
+                var xmlhttp = new XMLHttpRequest();
+                //2、设置请求方式和请求地址
+                xmlhttp.open("GET", "Memory_utilization.php", true);
+                //3、发送请求
+                xmlhttp.send();
+                //4、监听状态的变化
+                xmlhttp.onreadystatechange = function (ev2) {
+                    //5、返回处理结果
+                    if (xmlhttp.readyState == 4) {
+                        if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status === 304) {
+                            //把接收到的字符串转化为浮点数并保存两位小数
+                            memory_util.style.width = (parseFloat(xmlhttp.responseText).toFixed(1)) + '%';
+                            memory_util_text.innerHTML = memory_util.style.width;
+                        }
+                        else {
+                            console.log('没有接到服务器数据');
+                        }
+                    }
+                }
+            }, 2000)
+            //CPU利用率
+            var cpu = setInterval(function () {
+                //1、创建异步对象
+                var xmlhttp = new XMLHttpRequest();
+                //2、设置请求方式和请求地址
+                xmlhttp.open("GET", "System_load.php", true);
+                //3、发送请求
+                xmlhttp.send();
+                //4、监听状态的变化
+                xmlhttp.onreadystatechange = function (ev2) {
+                    //5、返回处理结果
+                    if (xmlhttp.readyState == 4) {
+                        if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status === 304) {
+                            //把接收到的字符串转化为浮点数并保存两位小数
+                            System_load.style.width = (parseFloat(xmlhttp.responseText).toFixed(1)) + '%';
+                            System_load_text.innerHTML = System_load.style.width;
+                        }
+                        else {
+                            console.log('没有接到服务器数据');
+                        }
+                    }
+                }
+            }, 2000)
+            //磁盘使用情况
+            var Disk = setInterval(function () {
+                //1、创建异步对象
+                var xmlhttp = new XMLHttpRequest();
+                //2、设置请求方式和请求地址
+                xmlhttp.open("GET", "Disk_occupancy.php", true);
+                //3、发送请求
+                xmlhttp.send();
+                //4、监听状态的变化
+                xmlhttp.onreadystatechange = function (ev2) {
+                    //5、返回处理结果
+                    if (xmlhttp.readyState == 4) {
+                        if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status === 304) {
+                            var arr = JSON.parse(xmlhttp.responseText);
+                            // console.log(parseFloat(arr[3]));
+                            Disk_occupancy.style.width = parseFloat(arr[3]) + '%';
+                            Disk_occupancy_text.innerHTML = Disk_occupancy.style.width;
+                            var arrInt = arr.map(Number);
+                            totalava.innerHTML = '    剩余：(' + parseInt(arrInt[2] / 1024) + 'M' + ')';
+                            // console.log(arrInt[0]);
+                            // console.log(arrInt[1]);
+                            // console.log(arrInt[2]);
+
+                        } else {
+                            console.log('没有接到服务器数据');
+                        }
+                    }
+                }
+            }, 2000)
+        })()
+    </script>
+</body>
+
+</html>
